@@ -47,7 +47,7 @@ jobs:
       # 前回のデータをキャッシュから復元
       - name: Restore cache
         uses: actions/cache@v3
-        id: cache
+        id: cache-yesterday
         with:
           path: stats_cache.json
           key: daily-stats-${{ env.yesterday }}
@@ -67,7 +67,7 @@ jobs:
 
       - name: Store cache
         uses: actions/cache@v3
-        id: cache
+        id: cache-today
         with:
           path: stats_cache.json
           key: daily-stats-${{ env.today }}
